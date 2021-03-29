@@ -7,6 +7,11 @@ const MahasiswaSchema = new mongoose.Schema({
   },
   score: Number,
   nomerAbsen: Number,
+  classRoom: {
+    type: mongoose.Schema.Types.ObjectId,
+    //refnya  acuannyya di model
+    ref: "classRoom"
+  }
 });
 
 //create tableotomatis

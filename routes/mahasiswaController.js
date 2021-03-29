@@ -4,7 +4,8 @@ const {Mahasiswa} = require('../models')
 const router = express.Router();
 
 router.get('/mahasiswa', async (req, res) => {
-  const mahasiswa = await Mahasiswa.find({})
+  //populate dari propertinya
+  const mahasiswa = await Mahasiswa.find({}, "-score -nomerAbsen -__v").populate("classRoom", "-__v")
   
   try {
     res.send(mahasiswa)
