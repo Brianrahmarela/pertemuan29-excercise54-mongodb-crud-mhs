@@ -3,7 +3,7 @@ const {Buku} = require('../models')
 
 const router = express.Router();
 
-router.get('/buku', async (req, res) => {
+router.get('/', async (req, res) => {
   //populate dari propertinya
   const buku = await Buku.find({}, "-__v")
   
@@ -15,9 +15,9 @@ router.get('/buku', async (req, res) => {
   }
 });
 
-router.post('/buku', async (req, res) => {
+router.post('/', async (req, res) => {
   const buku = await Buku.create(req.body);
-  console.log('post mbuku', buku);
+  console.log('post buku', buku);
   
   try {
     res.send(buku)
